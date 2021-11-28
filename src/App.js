@@ -1,4 +1,5 @@
 import './App.css';
+import "@fontsource/roboto";
 import { BasicTable } from './components/BasicTable';
 
 function App() {
