@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
-import { useTable } from 'react-table'
+import { useTable, useSortBy } from 'react-table'
 import MOCK_DATA from './MOCK_DATA.json'
-import { COLUMNS, GROUPED_COLUMNS } from './columns'
+import { GROUPED_COLUMNS } from './columns'
 import './table.css'
 export const BasicTable = () => {
     const columns = useMemo(() => GROUPED_COLUMNS, [])
@@ -10,7 +10,7 @@ export const BasicTable = () => {
     const tableInstance = useTable({
         columns,
         data,
-    })
+    }, useSortBy)
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 
@@ -22,8 +22,11 @@ export const BasicTable = () => {
                     <tr {...headerGroup.getHeaderGroupProps()}>
 
                         {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps()}> {column.render('Header')}</th>
-
+                            <th {...column.getHeaderProps(column.getSortByToggleProps())}> {column.render('Header')}
+                            <span>
+                                {column.isSorted ? (column.isSortedDesc ? ' ▼' : ' ▲') : ''}
+                            </span>
+                            </th>
                         ))}
                     </tr>
 

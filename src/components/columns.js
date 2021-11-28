@@ -1,46 +1,3 @@
-export const COLUMNS = [
-    {
-        Header: "Company Name",
-        accessor: "Company Name"
-    },
-    {
-        Header: "Total Company Revenue",
-        accessor: "Total Revenue"
-    },
-    {
-        Header: "Market Capitalization",
-        accessor: "Company Market Cap"
-    },
-    {
-        Header: "Managers",
-        accessor: "Women Managers"
-    },
-    {
-        Header: "Employees",
-        accessor: "Women Employees"
-    },
-    {
-        Header: "Total",
-        accessor: "CO2 Scope 1 & 2 Adjusted"
-    },
-    {
-        Header: "Rev Adj",
-        accessor: "CO2 Scope 1 & 2 Revenue Adjusted"
-    },
-    {
-        Header: "Total",
-        accessor: "CO2 Scope 3 Adjusted"
-    },
-    {
-        Header: "Rev Adj",
-        accessor: "CO2 Scope 3 Revenue Adjusted"
-    },
-    {
-        Header: "ESG Score",
-        accessor: "ESG Score"
-    },
-]
-
 export const GROUPED_COLUMNS = [
     {
         Header: " ",
@@ -103,7 +60,8 @@ export const GROUPED_COLUMNS = [
         columns: [
     {
         Header: "ESG Score",
-        accessor: "ESG Score"
+        accessor: "ESG Score",
+        Cell: ({value}) => {return parseFloat(value).toFixed( 2 );}
     },
         ]
     },
