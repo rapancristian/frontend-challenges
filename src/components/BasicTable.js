@@ -3,7 +3,6 @@ import { useTable, useSortBy, usePagination } from 'react-table'
 import MOCK_DATA from './MOCK_DATA.json'
 import { GROUPED_COLUMNS } from './columns'
 import './table.css'
-import { Chart } from './Chart'
 
 export const BasicTable = () => {
     const columns = useMemo(() => GROUPED_COLUMNS, [])
@@ -20,7 +19,7 @@ export const BasicTable = () => {
 
     return (
         <>
-            <table {...getTableProps()}>
+            <table className="table" {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
 
@@ -49,28 +48,28 @@ export const BasicTable = () => {
                         )
                     })}
                 </tbody>
-            </table>
-            <div>
-                <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-                    Previous
-                </button> {' '}
-                <span>
+                <div className="paginationContainer">
+                    <button className="paginationButtons" onClick={() => previousPage()} disabled={!canPreviousPage}>
+                        Prev
+                    </button> {' '}
+                    <span className="defaultTextSettings">
                     PAGE {' '}
-                    <input
-                        defaultValue={pageIndex + 1}
-                        value={pageIndex + 1}
-                        onChange={e => {
-                            const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
-                            gotoPage(pageNumber)
-                        }}
-                        style={{ width: '50px', border: 'none', outline: 'none', borderBottom: "1px solid #303030", textAlign: 'center' }}
-                    />
-                </span>{' '}
-                <button onClick={() => nextPage()} disabled={!canNextPage}>
-                    Next
-                </button>
-                <Chart width={'50'} height={'50'} background="black"  />
-            </div>
+                        <input
+                            defaultValue={pageIndex + 1}
+                            className="defaultTextSettings"
+                            value={pageIndex + 1}
+                            onChange={e => {
+                                const pageNumber = e.target.value ? Number(e.target.value) - 1 : 0
+                                gotoPage(pageNumber)
+                            }}
+                            style={{ width: '50px', border: 'none', outline: 'none', borderBottom: "1px solid #303030", textAlign: 'center' }}
+                        />
+                    </span>{' '}
+                    <button className="paginationButtons" onClick={() => nextPage()} disabled={!canNextPage}>
+                        Next
+                    </button>
+                </div>
+            </table>
         </>
     )
 }

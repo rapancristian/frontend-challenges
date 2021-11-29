@@ -1,12 +1,22 @@
-table td, th{
+table td,
+th,
+.paginationButtons, .defaultTextSettings {
   font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
+  min-width: 75px;
 }
+tr {
+  flex: none;
+  justify-content: space-between;
+}
+
 table td {
-  border-bottom: 1px solid  #BABABA;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #bababa;
   color: #383838;
 }
 
@@ -15,7 +25,29 @@ table tr:hover {
 }
 
 table th {
-  border-bottom: 1px solid  #222222;
+  border-bottom: 1px solid #222222;
+  text-transform: uppercase;
   color: #000000;
 }
 
+table td:first-child > div {
+  margin-left: 1em;
+  display: inline-block;
+  float: right
+}
+
+.paginationButtons {
+  display: inline;
+  background: white;
+  text-transform: uppercase;
+  color: #383838;
+  border: 1px solid #303030;
+  box-sizing: border-box;
+}
+
+.paginationContainer {
+  min-width: 300px;
+  display:inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+}
