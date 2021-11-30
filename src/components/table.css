@@ -7,12 +7,8 @@ th,
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
-  /* min-width: 75px; */
 }
-tr {
-  /* flex: none; */
-  /* justify-content: space-between; */
-}
+
 table {
   display: flex;
   flex-direction: column;
@@ -46,14 +42,7 @@ table th {
   border-bottom: 1px solid #222222;
 }
 
-/* table td:first-child > div {
-  margin-left: 1em;
-  display: inline-block;
-  float: right
-} */
-
 .paginationButtons {
-  /* display: inline; */
   width: 50px;
   height: 30px;
   background: white;
@@ -70,10 +59,21 @@ table th {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/* 
-.paginationContainer {
-  min-width: 300px;
-  display:inline-block;
-  vertical-align: top;
-  margin-top: 20px;
-} */
+
+.chartText {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 5px 5px 5px 0px;
+}
+.chartScore {
+  height: 19px;
+  display: flex;
+  align-items: center;
+}
+
+.chartContainer {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}

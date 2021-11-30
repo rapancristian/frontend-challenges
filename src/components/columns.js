@@ -61,16 +61,12 @@ export const GROUPED_COLUMNS = [
     {
         Header: " ",
         columns: [
-    {
-        Header: "ESG Score",
-        accessor: "ESG Score",
-        Cell: ({value}) => {
-            let newVal = parseFloat(value).toFixed(2)
-            let esgScoreColor = `rgba(0, 27, 66, ${newVal/100})`
-            return (<span style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
-            {newVal} |  <Chart style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }} heat={newVal} width={'150'} background={esgScoreColor} />
-        </span>)}
-    },
+            {
+                Header: "ESG Score",
+                accessor: "ESG Score",
+                Cell: ({ value }) => {
+                    return (<Chart heat={value} width={'150'}/>)
+                }},
         ]
     },
 ]
