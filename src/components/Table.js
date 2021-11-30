@@ -5,9 +5,8 @@ import { GROUPED_COLUMNS } from './columns'
 import './table.css'
 
 export const Table = () => {
-    const columns = useMemo(() => GROUPED_COLUMNS, [])
+    let columns = useMemo(() => GROUPED_COLUMNS, [])
     const data = useMemo(() => MOCK_DATA, [])
-
     const tableInstance = useTable({
         columns,
         data,
@@ -26,9 +25,11 @@ export const Table = () => {
                         <tr {...headerGroup.getHeaderGroupProps()}>
 
                             {headerGroup.headers.map(column => (
-                                <th className={column.Header !== " " ? 'underlined' : ''} {...column.getHeaderProps(column.getSortByToggleProps())}> {column.render('Header')}
+                                <th className={column.Header !== " " ? 'underlined' : ''} {...column.getHeaderProps(column.getSortByToggleProps({
+                                    style: { minWidth: column.minWidth, width: column.width },
+                                }))}> {column.render('Header')}
                                     <span>
-                                        {column.isSorted ? (column.isSortedDesc ? ' ▼' : ' ▲') : ''}
+                                        {column.isSorted ? (column.isSortedDesc ? '  ▼' : '  ▲') : ''}
                                     </span>
                                 </th>
                             ))}
@@ -42,7 +43,12 @@ export const Table = () => {
                         return (
                             <tr {...row.getRowProps()}>
                                 {row.cells.map(cell => {
-                                    return <td {...cell.getCellProps()}> {cell.render('Cell')}</td>
+                                    return <td {...cell.getCellProps({
+                                        style: {
+                                            minWidth: cell.column.minWidth,
+                                            width: cell.column.width,
+                                        },
+                                    })}> {cell.render('Cell')}</td>
                                 })}
                             </tr>
                         )
@@ -53,7 +59,7 @@ export const Table = () => {
                         Prev
                     </button> {' '}
                     <span className="defaultTextSettings">
-                    PAGE {' '}
+                        PAGE {' '}
                         <input
                             defaultValue={pageIndex + 1}
                             className="defaultTextSettings"
