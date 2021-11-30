@@ -1,6 +1,6 @@
 import './App.css';
 import "@fontsource/roboto";
-import { BasicTable } from './components/BasicTable';
+import { Table } from './components/Table';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <div className="App-title">
         Impact Assesment Data
       </div>
-      <BasicTable />
+      <Table />
     </div>
   );
 }

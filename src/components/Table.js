@@ -1,17 +1,17 @@
 import React, { useMemo } from 'react'
-import { useTable, useSortBy, usePagination } from 'react-table'
+import { useTable, useSortBy, usePagination, useFlexLayout } from 'react-table'
 import MOCK_DATA from './MOCK_DATA.json'
 import { GROUPED_COLUMNS } from './columns'
 import './table.css'
 
-export const BasicTable = () => {
+export const Table = () => {
     const columns = useMemo(() => GROUPED_COLUMNS, [])
     const data = useMemo(() => MOCK_DATA, [])
 
     const tableInstance = useTable({
         columns,
         data,
-    }, useSortBy, usePagination)
+    }, useSortBy, usePagination, useFlexLayout)
 
     const { getTableProps, getTableBodyProps, headerGroups, page, prepareRow, nextPage, previousPage, canPreviousPage, canNextPage, state, gotoPage } = tableInstance
 
@@ -26,7 +26,7 @@ export const BasicTable = () => {
                         <tr {...headerGroup.getHeaderGroupProps()}>
 
                             {headerGroup.headers.map(column => (
-                                <th {...column.getHeaderProps(column.getSortByToggleProps())}> {column.render('Header')}
+                                <th className={column.Header !== " " ? 'underlined' : ''} {...column.getHeaderProps(column.getSortByToggleProps())}> {column.render('Header')}
                                     <span>
                                         {column.isSorted ? (column.isSortedDesc ? ' ▼' : ' ▲') : ''}
                                     </span>

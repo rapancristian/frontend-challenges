@@ -67,9 +67,9 @@ export const GROUPED_COLUMNS = [
         Cell: ({value}) => {
             let newVal = parseFloat(value).toFixed(2)
             let esgScoreColor = `rgba(0, 27, 66, ${newVal/100})`
-            return (<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
-            {newVal} | <Chart style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }} heat={newVal} width={'150'} background={esgScoreColor} />
-        </div>)}
+            return (<span style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
+            {newVal} |  <Chart style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' }} heat={newVal} width={'150'} background={esgScoreColor} />
+        </span>)}
     },
         ]
     },

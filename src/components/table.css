@@ -1,21 +1,32 @@
 table td,
 th,
 .paginationButtons, .defaultTextSettings {
+  flex-shrink: 0;
   font-family: "Roboto";
   font-style: normal;
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
-  min-width: 75px;
+  /* min-width: 75px; */
 }
 tr {
-  flex: none;
-  justify-content: space-between;
+  /* flex: none; */
+  /* justify-content: space-between; */
+}
+table {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 0;
 }
 
 table td {
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
   border-bottom: 1px solid #bababa;
   color: #383838;
 }
@@ -25,29 +36,44 @@ table tr:hover {
 }
 
 table th {
-  border-bottom: 1px solid #222222;
+  display: flex;
+  justify-content: flex-start;
   text-transform: uppercase;
   color: #000000;
 }
 
-table td:first-child > div {
+.underlined {
+  border-bottom: 1px solid #222222;
+}
+
+/* table td:first-child > div {
   margin-left: 1em;
   display: inline-block;
   float: right
-}
+} */
 
 .paginationButtons {
-  display: inline;
+  /* display: inline; */
+  width: 50px;
+  height: 30px;
   background: white;
   text-transform: uppercase;
   color: #383838;
   border: 1px solid #303030;
   box-sizing: border-box;
 }
-
+.paginationContainer  {
+  gap: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* 
 .paginationContainer {
   min-width: 300px;
   display:inline-block;
   vertical-align: top;
   margin-top: 20px;
-}
+} */
