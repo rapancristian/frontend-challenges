@@ -1,5 +1,4 @@
 import './App.css';
-import "@fontsource/roboto";
 import { Table } from './components/Table';
 
 
