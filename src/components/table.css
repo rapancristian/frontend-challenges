@@ -18,6 +18,11 @@ table {
   flex-wrap: nowrap;
 }
 
+td:nth-child(10n + 1) {  
+  display: flex;
+  justify-content: flex-start;
+}
+
 table td {
   padding-top: 8px;
   padding-bottom: 8px;
