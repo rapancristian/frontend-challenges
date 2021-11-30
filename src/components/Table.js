@@ -17,8 +17,8 @@ export const Table = () => {
     const { pageIndex } = state
 
     return (
-        <>
-            <table className="table" {...getTableProps()}>
+        <div className="tableContainer">
+            <table {...getTableProps()}>
                 <thead>
                     {headerGroups.map(headerGroup => (
 
@@ -54,6 +54,7 @@ export const Table = () => {
                         )
                     })}
                 </tbody>
+                </table>
                 <div className="paginationContainer">
                     <button className="paginationButtons" onClick={() => previousPage()} disabled={!canPreviousPage}>
                         Prev
@@ -75,7 +76,6 @@ export const Table = () => {
                         Next
                     </button>
                 </div>
-            </table>
-        </>
+        </div>        
     )
 }

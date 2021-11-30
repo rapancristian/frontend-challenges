@@ -58,7 +58,6 @@ table th {
   gap: 10px;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
